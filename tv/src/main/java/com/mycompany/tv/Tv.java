@@ -12,8 +12,8 @@ public class Tv {
     private boolean ligada;
     private int canal;
     private int volume;
-    private final int VOLUME_MAXIMO = 100;
-    private final int VOLUME_MINIMO = 0;
+    private final int VOLUME_MAX = 100;
+    private final int VOLUME_MIN = 0;
 
     public Tv() {
         ligada = false;
@@ -29,27 +29,27 @@ public class Tv {
         }
     }
 
-    public void alterarCanal(int novoCanal) {
+    public void pularCanal(int novoCanal) {
         if (ligada && (novoCanal == 1 || novoCanal == 3 || novoCanal == 5 || novoCanal == 7 || novoCanal == 11)) {
             canal = novoCanal;
         } else {
-            System.out.println("Não é possível alterar para o canal especificado.");
+            System.out.println("Não terá como passar para o canal específico.");
         }
     }
 
     public void aumentarVolume() {
-        if (ligada && volume < VOLUME_MAXIMO) {
+        if (ligada && volume < VOLUME_MAX) {
             volume++;
         }
     }
 
     public void diminuirVolume() {
-        if (ligada && volume > VOLUME_MINIMO) {
+        if (ligada && volume > VOLUME_MIN) {
             volume--;
         }
     }
 
-    public void exibirStatus() {
+    public void status() {
         System.out.println("TV está ligada: " + ligada);
         System.out.println("Canal: " + canal);
         System.out.println("Volume: " + volume);
@@ -61,9 +61,9 @@ public class Tv {
         minhaTV.ligarDesligar();
         minhaTV.alterarCanal(1);
         minhaTV.diminuirVolume();
-        minhaTV.exibirStatus();
+        minhaTV.status();
 
         minhaTV.ligarDesligar();
-        minhaTV.exibirStatus();
+        minhaTV.status();
     }
 }
